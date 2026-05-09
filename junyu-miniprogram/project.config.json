@@ -1,5 +1,5 @@
 {
-  "description": "钧遇·匠心",
+  "description": "AI钧瓷文创设计",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -34,7 +34,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx291c69ba439a839c",
+  "appid": "**********",
   "projectname": "junyu-miniprogram",
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
