@@ -1,0 +1,17 @@
+.shape-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 16rpx;
+  border: 2rpx solid #f0e8e0;
+  background: #fefcf9;
+}
+
+.shape-item-selected {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 16rpx;
+  border: 2rpx solid #9f2e1c;
+  background: rgba(159,46,28,0.1);
+}

@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/ai-design/ai-design",
+    "pages/cart/cart",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f8f5f2",
+    "navigationBarTitleText": "AI钧瓷文化设计",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f8f5f2"
+  },
+  "tabBar": {
+    "color": "#a49284",
+    "selectedColor": "#9f2e1c",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tab_home.png",
+        "selectedIconPath": "/images/tab_home_active.png"
+      },
+      {
+        "pagePath": "pages/ai-design/ai-design",
+        "text": "AI设计",
+        "iconPath": "/images/tab_ai.png",
+        "selectedIconPath": "/images/tab_ai_active.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "定制",
+        "iconPath": "/images/tab_cart.png",
+        "selectedIconPath": "/images/tab_cart_active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "/images/tab_profile.png",
+        "selectedIconPath": "/images/tab_profile_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "cloud": true
+}
