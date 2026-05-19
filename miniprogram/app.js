@@ -11,7 +11,7 @@ App({
     if (wx.cloud) {
       try {
         wx.cloud.init({
-          env: 'cloud1-d7g8ezg3gbf2bad70',
+          env: '***************',
           traceUser: true
         });
         this.globalData.cloudReady = true;
