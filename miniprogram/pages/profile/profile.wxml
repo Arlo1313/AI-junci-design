@@ -1,0 +1,42 @@
+<view style="min-height:100vh;background:#f8f5f2;padding:0 24rpx;">
+  <view style="display:flex;align-items:center;gap:24rpx;background:linear-gradient(135deg,#9f2e1c,#b53b28);border-radius:24rpx;padding:32rpx 28rpx;margin:16rpx 0 24rpx;">
+    <view style="width:100rpx;height:100rpx;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:40rpx;">👤</view>
+    <view>
+      <text style="font-weight:650;font-size:34rpx;color:#fff;display:block;">钧瓷爱好者</text>
+      <text style="font-size:24rpx;color:rgba(255,255,255,0.75);margin-top:6rpx;display:block;">会员等级 · 匠心初识</text>
+    </view>
+  </view>
+
+  <view style="background:#fff;border-radius:20rpx;padding:28rpx;margin-bottom:24rpx;">
+    <!-- 我的订单 -->
+    <view style="display:flex;align-items:center;padding:24rpx 0;border-bottom:2rpx solid #f0e4db;" bindtap="showTip" data-msg="查看全部订单">
+      <text style="margin-right:16rpx;">📦</text>
+      <text style="flex:1;">我的订单</text>
+      <text style="color:#a28d7c;">全部 ></text>
+    </view>
+
+    <!-- 我的共创 -->
+    <view style="display:flex;align-items:center;padding:24rpx 0;border-bottom:2rpx solid #f0e4db;" bindtap="navigateTo" data-url="/pages/my-creation/my-creation">
+      <text style="margin-right:16rpx;">🎨</text>
+      <text style="flex:1;">我的共创</text>
+      <text style="color:#a28d7c;">{{creationCount}}件作品 ></text>
+    </view>
+
+    <!-- 优惠券 -->
+    <view style="display:flex;align-items:center;padding:24rpx 0;" bindtap="navigateTo" data-url="/pages/coupon/coupon">
+      <text style="margin-right:16rpx;">🎫</text>
+      <text style="flex:1;">优惠券</text>
+      <text style="color:#a28d7c;">3张 ></text>
+    </view>
+  </view>
+
+  <view style="background:#fff;border-radius:20rpx;padding:28rpx;" bindtap="showTip" data-msg="联系客服">
+    <view style="display:flex;align-items:center;">
+      <text style="margin-right:16rpx;">💬</text>
+      <text style="flex:1;">联系客服</text>
+      <text style="color:#a28d7c;">在线 ></text>
+    </view>
+  </view>
+
+  <view class="bottom-space"></view>
+</view>

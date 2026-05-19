@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="header">
+    <text class="title">我的共创作品</text>
+    <text class="subtitle">AI钧瓷设计生成记录</text>
+  </view>
+  
+  <view class="creation-list" wx:if="{{creations.length > 0}}">
+    <view class="creation-item" wx:for="{{creations}}" wx:key="index">
+      <image class="creation-img" src="{{item}}" mode="aspectFill" bindtap="previewImage" data-src="{{item}}"/>
+      <view class="creation-info">
+        <text class="creation-name">钧瓷设计 {{index + 1}}</text>
+        <text class="creation-time">{{times[index] || '刚刚'}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="empty-state" wx:else>
+    <text class="empty-icon">🏺</text>
+    <text class="empty-text">暂无共创作品</text>
+    <text class="empty-tip">前往"AI设计"页面生成你的第一件钧瓷作品吧</text>
+    <button class="go-btn" bindtap="goToDesign">去创作</button>
+  </view>
+</view>

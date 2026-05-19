@@ -1,0 +1,151 @@
+<view style="min-height:100vh;background:#f8f5f2;">
+  <view class="nav-header">
+    <text class="nav-title">钧遇·匠心</text>
+  </view>
+
+  <view class="search-bar">
+    <text style="color:#a28d7c;">搜索你喜欢的钧瓷...</text>
+  </view>
+
+  <view class="card" style="background:#b53b28;color:#fff;margin:0 24rpx 24rpx;padding:24rpx;" bindtap="goAI">
+    <text style="font-weight:600;font-size:36rpx;display:block;">AI设计 · 开窑有喜</text>
+    <text style="opacity:0.9;font-size:26rpx;margin-top:8rpx;display:block;">用文字生成你的专属钧瓷 →</text>
+  </view>
+
+  <view style="display:flex;justify-content:space-around;margin-bottom:32rpx;padding:0 24rpx;">
+    <view style="text-align:center;" bindtap="goAI">
+      <view style="background:rgba(159,46,28,0.1);width:100rpx;height:100rpx;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12rpx;color:#9f2e1c;font-size:40rpx;">✨</view>
+      <text style="font-size:24rpx;">AI设计</text>
+    </view>
+    <view style="text-align:center;" bindtap="goBlindBox">
+      <view style="background:rgba(159,46,28,0.1);width:100rpx;height:100rpx;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12rpx;color:#9f2e1c;font-size:40rpx;">🎁</view>
+      <text style="font-size:24rpx;">盲盒</text>
+    </view>
+    <view style="text-align:center;" bindtap="goMaster">
+      <view style="background:rgba(159,46,28,0.1);width:100rpx;height:100rpx;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12rpx;color:#9f2e1c;font-size:40rpx;">🏺</view>
+      <text style="font-size:24rpx;">大师联名</text>
+    </view>
+    <view style="text-align:center;" bindtap="showTip" data-msg="共创社区即将开放">
+      <view style="background:rgba(159,46,28,0.1);width:100rpx;height:100rpx;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12rpx;color:#9f2e1c;font-size:40rpx;">✏️</view>
+      <text style="font-size:24rpx;">共创社区</text>
+    </view>
+  </view>
+
+  <!-- 盲盒主区域 -->
+  <view class="blind-box-container">
+    <!-- 盲盒标题栏 -->
+    <view class="blind-box-header">
+      <view class="header-left">
+        <text class="header-icon">🎁</text>
+        <text class="header-title">盲盒商城</text>
+      </view>
+      <view class="header-right" bindtap="showTip" data-msg="查看全部盲盒">
+        <text class="header-more">查看全部</text>
+        <text class="header-arrow">→</text>
+      </view>
+    </view>
+
+    <!-- 系列分类导航 -->
+    <scroll-view scroll-x class="series-nav" enable-flex>
+      <view 
+        class="nav-item {{activeSeries === 'zodiac' ? 'active' : ''}}" 
+        bindtap="switchSeries" 
+        data-series="zodiac"
+      >
+        <text class="nav-icon">🐴</text>
+        <text class="nav-text">十二生肖</text>
+      </view>
+      <view 
+        class="nav-item {{activeSeries === 'jewelry' ? 'active' : ''}}" 
+        bindtap="switchSeries" 
+        data-series="jewelry"
+      >
+        <text class="nav-icon">💍</text>
+        <text class="nav-text">小首饰</text>
+      </view>
+      <view 
+        class="nav-item {{activeSeries === 'cup' ? 'active' : ''}}" 
+        bindtap="switchSeries" 
+        data-series="cup"
+      >
+        <text class="nav-icon">☕</text>
+        <text class="nav-text">杯子</text>
+      </view>
+    </scroll-view>
+
+    <!-- 十二生肖系列内容 -->
+    <view class="series-content" wx:if="{{activeSeries === 'zodiac'}}">
+      <view class="series-cover" bindtap="toggleZodiac">
+        <image class="cover-img" src="/images/马.jpg" mode="aspectFill"/>
+        <view class="cover-mask">
+          <text class="cover-text">{{showZodiac ? '点击收起' : '点击查看全部十二生肖'}}</text>
+        </view>
+      </view>
+      <view class="zodiac-grid" wx:if="{{showZodiac}}">
+        <view class="zodiac-item" wx:for="{{zodiacList}}" wx:key="name" bindtap="showZodiacDetail" data-item="{{item}}">
+          <image 
+            class="zodiac-img" 
+            src="{{item.image}}" 
+            mode="aspectFill"
+            catchtap="previewImage" 
+            data-index="{{index}}" 
+            data-listname="zodiacList"
+          />
+          <text class="zodiac-name">{{item.name}}</text>
+        </view>
+      </view>
+      <view class="series-intro" wx:if="{{!showZodiac}}">
+        <text class="intro-title">生肖·灵驹</text>
+        <text class="intro-desc">以传统生肖文化为灵感，融合现代设计理念</text>
+        <text class="intro-price">¥39起</text>
+      </view>
+    </view>
+
+    <!-- 小首饰系列内容 -->
+    <view class="series-content" wx:if="{{activeSeries === 'jewelry'}}">
+      <view class="jewelry-grid">
+        <view class="jewelry-item" wx:for="{{jewelryList}}" wx:key="name" bindtap="showTip" data-msg="已选择：{{item.name}}">
+          <image 
+            class="jewelry-img" 
+            src="{{item.image}}" 
+            mode="aspectFill"
+            catchtap="previewImage" 
+            data-index="{{index}}" 
+            data-listname="jewelryList"
+          />
+          <view class="jewelry-info">
+            <text class="jewelry-name">{{item.name}}</text>
+            <text class="jewelry-price">{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 杯子系列内容 -->
+    <view class="series-content" wx:if="{{activeSeries === 'cup'}}">
+      <view class="cup-grid">
+        <view class="cup-item" wx:for="{{cupList}}" wx:key="name" bindtap="showTip" data-msg="已选择：{{item.name}}">
+          <image 
+            class="cup-img" 
+            src="{{item.image}}" 
+            mode="aspectFill"
+            catchtap="previewImage" 
+            data-index="{{index}}" 
+            data-listname="cupList"
+          />
+          <view class="cup-info">
+            <text class="cup-name">{{item.name}}</text>
+            <text class="cup-price">{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部购买按钮 -->
+    <view class="blind-box-footer">
+      <button class="buy-btn" bindtap="showTip" data-msg="即将开放购买">立即购买</button>
+    </view>
+  </view>
+
+  <view class="bottom-space"></view>
+</view>

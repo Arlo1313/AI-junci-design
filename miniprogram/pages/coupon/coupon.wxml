@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="header">
+    <text class="title">我的优惠券</text>
+    <text class="subtitle">共 {{coupons.length}} 张可用</text>
+  </view>
+
+  <view class="coupon-list">
+    <view class="coupon-card" wx:for="{{coupons}}" wx:key="id">
+      <view class="coupon-left">
+        <text class="amount">¥{{item.amount}}</text>
+        <text class="condition">满{{item.condition}}可用</text>
+      </view>
+      <view class="coupon-right">
+        <text class="name">{{item.name}}</text>
+        <text class="valid">有效期至 {{item.validDate}}</text>
+        <text class="tag {{item.status === '可用' ? 'active' : 'used'}}">{{item.status}}</text>
+      </view>
+    </view>
+  </view>
+</view>

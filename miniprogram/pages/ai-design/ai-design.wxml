@@ -1,0 +1,56 @@
+<view style="min-height:100vh;background:#f8f5f2;padding:0 24rpx;">
+  <view class="nav-header">
+    <text class="nav-title">钧瓷设计</text>
+  </view>
+
+  <view class="card">
+    <text style="font-weight:600;margin-bottom:16rpx;display:block;">输入描述词</text>
+    <textarea
+      style="width:100%;height:140rpx;background:#f3eeea;border-radius:16rpx;padding:20rpx 24rpx;font-size:28rpx;box-sizing:border-box;"
+      value="{{prompt}}"
+      bindinput="onInput"
+      placeholder="描述你想要的钧瓷..."
+      maxlength="100"
+    ></textarea>
+
+    <text style="font-weight:600;margin:24rpx 0 16rpx;display:block;">选择器型</text>
+    <view style="display:flex;gap:16rpx;">
+      <view wx:for="{{shapes}}" wx:key="*this"
+        class="{{shape===item?'shape-item-selected':'shape-item'}}"
+        bindtap="selectShape" data-v="{{item}}">
+        <text style="font-size:30rpx;display:block;">{{item}}</text>
+      </view>
+    </view>
+
+    <text style="font-weight:600;margin:24rpx 0 16rpx;display:block;">釉色偏好</text>
+    <view style="display:flex;gap:16rpx;">
+      <view wx:for="{{glazes}}" wx:key="*this"
+        class="{{glaze===item?'shape-item-selected':'shape-item'}}"
+        bindtap="selectGlaze" data-v="{{item}}">
+        <text style="font-size:30rpx;display:block;">{{item}}</text>
+      </view>
+    </view>
+
+    <button class="btn" bindtap="onGenerate" disabled="{{isGenerating}}" style="margin-top:32rpx;">
+      {{isGenerating ? '生成中...' : '生成设计方案'}}
+    </button>
+
+    
+    <view wx:if="{{isGenerating}}" style="margin:20rpx 0;background:#f3eeea;border-radius:10rpx;height:8rpx;overflow:hidden;"><view style="width:{{progress}}%;height:100%;background:#9f2e1c;border-radius:10rpx;"></view></view>
+  </view>
+
+  <view class="card" wx:if="{{showResult}}">
+    <text style="font-weight:650;display:block;margin-bottom:20rpx;">AI生成效果图</text>
+    <image style="width:100%;height:400rpx;border-radius:20rpx;background:#f5efe9;" src="{{result.image}}" mode="aspectFit" bindtap="previewImage"></image>
+    <text style="display:block;margin-top:16rpx;font-weight:500;">{{result.shapeName}} · {{prompt}}</text>
+    <text style="color:#6b4e3a;font-size:26rpx;display:block;margin-top:8rpx;">预计成品率 92% · {{result.glazeName}}釉</text>
+    <text style="color:#a28d7c;font-size:22rpx;display:block;margin-top:8rpx;">本图片由AI生成，仅供设计参考</text>
+    <view style="display:flex;gap:20rpx;margin-top:24rpx;">
+      <button class="btn" style="flex:1;background:transparent;color:#9f2e1c;border:2rpx solid #9f2e1c;" bindtap="onGenerate">重新生成</button>
+      <button class="btn" style="flex:1;" bindtap="onAddToCart">加入定制车</button>
+    </view>
+  </view>
+
+  <view style="color:#8a7a6e;font-size:24rpx;text-align:center;margin:32rpx 0;">AI生成方案将由非遗匠人审核工艺可行性</view>
+  <view class="bottom-space"></view>
+</view>
