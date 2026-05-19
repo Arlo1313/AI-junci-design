@@ -4,7 +4,7 @@ const https = require('https')
 const url = require('url')
 
 cloud.init({
-  env: cloud.DYNAMIC_CURRENT_ENV
+  env: ********
 })
 
 exports.main = async (event, context) => {
