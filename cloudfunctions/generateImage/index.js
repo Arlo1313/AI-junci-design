@@ -6,8 +6,8 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 // ========================================
 // 【必须替换】你的阿里云百炼API Key
 // ========================================
-const ALIYUN_API_KEY = 'sk-d62c566394e64b4cbd7102bb9809b6c1';
-const API_HOST = 'dashscope.aliyuncs.com';
+const ALIYUN_API_KEY = '***********';
+const API_HOST = '***********';
 
 // 发送HTTP请求（Promise封装，不依赖任何外部库）
 function httpRequest(options, postData) {
