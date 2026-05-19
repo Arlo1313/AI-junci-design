@@ -34,7 +34,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx291c69ba439a839c",
+  "appid": "*************",
   "projectname": "junyu-miniprogram",
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
